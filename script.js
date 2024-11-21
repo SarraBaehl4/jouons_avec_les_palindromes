@@ -24,11 +24,28 @@ function isValidDate(dateString) {
     date.getDate() === day
   );
 }
+// console.log(isValidDate("03/04/2001")); //true
+// console.log(isValidDate("31/02/2000")); //false
 
-console.log(isValidDate("03/04/2001")); //true
-console.log(isValidDate("03/14/2001")); //false
-console.log(isValidDate("31/02/2000")); //false
-console.log(isValidDate("tata")); //false
-console.log(isValidDate("2000")); //false
-console.log(isValidDate("29/02/2023")); //false (année 2023 non bissextile)
-console.log(isValidDate("29/02/2024")); // true
+//Etape 2:
+function isPalindrome(dateString) {
+  if (isValidDate(dateString) === false) {
+    return false;
+  }
+  let dateSansSlash = dateString.replace(/\//g, "");
+
+  const dateArray = dateSansSlash.split('');
+
+  const dateRevertArray = dateArray.slice().reverse();
+
+  for (let i = 0; i < dateArray.length; i++) {
+    if (dateArray[i] !== dateRevertArray[i]) {
+      return false;
+    }
+  }
+  return true
+}
+console.log(isPalindrome("02/02/2020")); //true
+console.log(isPalindrome("03/04/2001"));//false
+//isPalindrome("03/04/2001")
+//isPalindrome("02/02/2020");
