@@ -65,11 +65,27 @@ function getNextPalindromes(x) {
     let day = ajoutZeroDevant(dateDuJour.getDate());
     let month = ajoutZeroDevant(dateDuJour.getMonth() + 1);
     let year = dateDuJour.getFullYear();
-    let dateAVerifier = `${day}/${month}/${year}`;
+    let dateAVerifier = `${day}/${month}/${year}`; //format date dd/mm/yyyy
     if (isPalindrome(dateAVerifier)) {
-      futurPalindromDates.push(`${day}/${month}/${year}`);
+      futurPalindromDates.push(`${day}/${month}/${year}`); //si la date a vérifier est palindrome , elle sera ajoutée au tableau futurpalindromedates
     }
   }
   return futurPalindromDates;
 }
 console.table(getNextPalindromes(10));
+
+// //Etape 4:
+// function isPalindrome(myString){
+// let myStringArray = myString.split('');
+// // console.log(myStringArray);
+// let inversedStringArray = myStringArray.toReversed();
+// // console.log(inversedStringArray);
+// for(let i=0; i<myStringArray.length; i++){
+//   if(myStringArray[i] !==inversedStringArray[i]){
+//     return false
+//   }
+// }
+// return true
+// }
+// console.log(isPalindrome("kayak"))// true
+// console.log(isPalindrome("hello"))//false
