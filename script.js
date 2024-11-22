@@ -1,5 +1,6 @@
 //Etape 1:
 function isValidDate(dateString) {
+  //dateString =prompt("Veuillez entrer une date sous format jj/mm/aaaa")
   let dateParties = dateString.split("/");
   // Vérifier que la date a exactement 3 parties
   if (dateParties.length !== 3) {
@@ -50,6 +51,18 @@ function isPalindrome(dateString) {
 //console.log(isPalindrome("02/02/2020")); //true
 //console.log(isPalindrome("22/02/2020"));//false
 
+//fonction pour le DOM
+function checkPalindrome() {
+  const dateEntree = document.getElementById("dateentree").value;
+  const result = isValidDate(dateEntree) ? "Cette date est valide !" : "Cette date n'est pas valide.";
+  document.getElementById("palindrome").innerText = result;
+  if(result =="Cette date est valide !"){
+  const message = isPalindrome(dateEntree) ? "Cette date est un palindrome !" : "Cette date n'est pas un palindrome.";
+  document.getElementById("palindrome").innerText = message;
+  }else{
+    checkPalindrome()
+  }
+}
 //Etape 3:
 //fonction pour ajouter un 0 au 1er au 9eme jour du mois et aux 1er à 9eme mois
 function ajoutZeroDevant(num) {
@@ -89,3 +102,5 @@ console.table(getNextPalindromes(10));
 // }
 // console.log(isPalindrome("kayak"))// true
 // console.log(isPalindrome("hello"))//false
+
+
